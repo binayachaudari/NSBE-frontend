@@ -1,10 +1,14 @@
 import { useState, useRef } from 'react';
 import Navbar from './Navbar';
+import { fetchResponse } from '../services/chat.service';
+import { useMutation } from 'react-query';
 
 const Tennant = () => {
   const [userText, setUserText] = useState('');
 
-  const [chatHistory, setChatHistory] = useState(['Ask me anything!']);
+  const [chatHistory, setChatHistory] = useState([
+    { type: 'bot', text: 'Ask me anything!' },
+  ]);
 
   const onTextChange = (e) => {
     setUserText(e.target.value);
@@ -12,34 +16,20 @@ const Tennant = () => {
 
   const chatBoxRef = useRef(null);
 
-  const [isLoading, setIsLoading] = useState(false);
+  const { mutate, isLoading } = useMutation('chat', fetchResponse, {
+    enabled: false,
+    onSuccess: (data) => {
+      setChatHistory([...chatHistory, { type: 'bot', text: data.text }]);
+    },
+  });
 
   const onSendBtnClick = async () => {
     if (userText === '') {
       return;
     }
-    setIsLoading(true);
-
-    setChatHistory([...chatHistory, userText]);
+    mutate(userText);
+    setChatHistory([...chatHistory, { type: 'user', text: userText }]);
     setUserText('');
-    await fetchResponse();
-    setIsLoading(false);
-  };
-
-  const fetchResponse = async () => {
-    const response = await fetch('https://nsbe.thedevelop3r.com/chat/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        message: userText,
-      }),
-    });
-
-    const data = await response.json();
-    console.log('Data response', data);
-    setChatHistory([...chatHistory, data.text]);
   };
 
   return (
@@ -61,11 +51,11 @@ const Tennant = () => {
 
               {chatHistory.map((chat, index) => {
                 // bg-yellow-600 for sent message and on the right side, bg-white for received message and on the left side
-                if (index % 2 !== 0) {
+                if (chat?.type === 'user') {
                   return (
                     <div key={index} className="mb-2 text-right">
                       <p className="bg-yellow-600 text-white rounded-lg py-2 px-4 inline-block">
-                        {chat}
+                        {chat.text}
                       </p>
                     </div>
                   );
@@ -73,7 +63,7 @@ const Tennant = () => {
                   return (
                     <div key={index} className="mb-2 text-left">
                       <p className="bg-white text-gray-800 rounded-lg py-2 px-4 inline-block">
-                        {chat}
+                        {chat.text}
                       </p>
                     </div>
                   );
@@ -89,6 +79,7 @@ const Tennant = () => {
                 }}
                 value={userText}
                 onChange={onTextChange}
+                disabled={isLoading}
                 id="user-input"
                 type="text"
                 placeholder="Type a message"
@@ -98,7 +89,7 @@ const Tennant = () => {
                 disabled={isLoading}
                 onClick={onSendBtnClick}
                 id="send-button"
-                className="bg-yellow-600 text-white px-4 py-2 rounded-r-md hover:bg-yellow-800 transition duration-300"
+                className="bg-yellow-600 text-white px-4 py-2 rounded-r-md hover:bg-yellow-800 transition duration-300 ml-2"
               >
                 Send
               </button>
