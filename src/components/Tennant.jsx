@@ -5,7 +5,7 @@ const Tennant = () => {
     const [userText, setUserText] = useState('')
 
 
-    const [chatHistory, setChatHistory] = useState(["Hello there, Welcome to EasyLease Interactive Portal.Please, put forward your queries and we will try to answer it for you."])
+    const [chatHistory, setChatHistory] = useState(["Ask me anything!"])
 
     const onTextChange = (e) => {
         setUserText(e.target.value)
@@ -113,7 +113,7 @@ const Tennant = () => {
                             target.classList.toggle('hidden')
                         }
                     } type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-                        <span>Is there really a crisis for housing in Canada?</span>
+                        <span>What are my rights as a tenant in Canada?</span>
                         <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
                         </svg>
@@ -121,7 +121,7 @@ const Tennant = () => {
                 </h2>
                 <div id="accordion-collapse-body-1" className="hidden" aria-labelledby="accordion-collapse-heading-1">
                     <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                        <p className="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio aliquam maxime voluptates dolore harum, sed ut quasi earum minus, soluta, necessitatibus beatae at! Nemo laborum voluptas inventore perspiciatis est quia.</p>
+                        <p className="mb-2 text-gray-500 dark:text-gray-400">Tenants often seek clarification on their rights regarding rent increases, lease agreements, maintenance responsibilities, privacy rights, and eviction procedures under Canadian tenancy laws.</p>
                     </div>
                 </div>
                 <h2 id="accordion-collapse-heading-2">
@@ -132,7 +132,7 @@ const Tennant = () => {
 
                         }
                     } type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
-                        <span>How difficult is it to find a affordable housing?</span>
+                        <span>Can I claim a tax refund on the rent I've paid?</span>
                         <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
                         </svg>
@@ -140,7 +140,7 @@ const Tennant = () => {
                 </h2>
                 <div id="accordion-collapse-body-2" className="hidden" aria-labelledby="accordion-collapse-heading-2">
                     <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-                        <p className="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aut dicta, asperiores, at aliquam, praesentium nemo quae voluptatibus maxime ipsum non eum dolorum pariatur tenetur?</p>
+                        <p className="mb-2 text-gray-500 dark:text-gray-400">Tenants may inquire about the possibility of claiming tax refunds or credits on the rent they've paid, especially if they're eligible for certain housing-related tax benefits or deductions.</p>
                     </div>
                 </div>
                 <h2 id="accordion-collapse-heading-3">
@@ -150,7 +150,7 @@ const Tennant = () => {
                             target.classList.toggle('hidden')
                         }
                     } type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
-                        <span>What is the average size of house in Canada?</span>
+                        <span>Can I live with my pets?</span>
                         <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
                         </svg>
@@ -158,11 +158,51 @@ const Tennant = () => {
                 </h2>
                 <div id="accordion-collapse-body-3" className="hidden" aria-labelledby="accordion-collapse-heading-3">
                     <div className="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                        <p className="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis neque mollitia veniam modi, error commodi, non ad iusto, aspernatur deleniti dicta consequuntur exercitationem dignissimos temporibus!</p>
+                        <p className="mb-2 text-gray-500 dark:text-gray-400">Landlords have the right to refuse tenants if they suspect they will move in with pets. However, once a landlord accepts a tenant, in spite of any verbal agreements or contract stipulations, landlords cannot evict tenants for pet ownership under most circumstances.</p>
+                    </div>
+                </div>
+                <h2 id="accordion-collapse-heading-4">
+                    <button onClick={
+                        () => {
+                            const target = document.getElementById('accordion-collapse-body-4')
+                            target.classList.toggle('hidden')
+                        }
+                    } type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
+                        <span>Can my landlord evict me without any reason?</span>
+                        <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-4" className="hidden" aria-labelledby="accordion-collapse-heading-4">
+                    <div className="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
+                        <p className="mb-2 text-gray-500 dark:text-gray-400">There is a legal process under the <a target="_blank" href="https://www.ontario.ca/laws/statute/06r17">Residential Tenancies Act </a>which a landlord must follow in order to evict a tenant. There are many points in this process at which a tenant can try to fix the situation and/or pay arrears and have the eviction stopped.</p>
+                    </div>
+                </div>
+                <h2 id="accordion-collapse-heading-5">
+                    <button onClick={
+                        () => {
+                            const target = document.getElementById('accordion-collapse-body-5')
+                            target.classList.toggle('hidden')
+                        }
+                    } type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-5" aria-expanded="false" aria-controls="accordion-collapse-body-5">
+                        <span>What if my landlord increases my rent fee unexpectedly?</span>
+                        <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-5" className="hidden" aria-labelledby="accordion-collapse-heading-5">
+                    <div className="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
+                        <p className="mb-2 text-gray-500 dark:text-gray-400">The landlord is allowed to raise the rent by a guideline amount once per year. This can happen 12 months after:
+                        <ul>
+                            <li>a tenant first moves in, or</li>
+                            <li>the last rent increase</li>
+                        </ul>
+                        The annual rent increase guideline amount is set by the Ontario government every year (e.g., between January 1 and December 31, 2020, rent increases up to 2.2 per cent may be applied).The landlord must provide the tenant with written notice of a rent increase at least 90 days before it takes effect.</p>
                     </div>
                 </div>
             </div>
-
         </div>
     </>
     )
