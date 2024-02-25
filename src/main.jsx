@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Landlord from './components/Landlord.jsx';
 import Tennant from './components/Tennant.jsx';
+import Listings from './components/Listings.jsx';
 
 const router = createBrowserRouter(
   [{
@@ -19,10 +20,14 @@ const router = createBrowserRouter(
     path: "/landlord",
     element: <Landlord />,
   },
-    {
-      path: "/tennant",
-      element: <Tennant />,
-    },
+  {
+    path: "/tennant",
+    element: <Tennant />,
+  },
+  {
+    path: "/listings",
+    element: <Listings />,
+  },
   ]
 )
 

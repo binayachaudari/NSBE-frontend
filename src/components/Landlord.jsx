@@ -122,7 +122,7 @@ const Landlord = () => {
                                     </div>
                                     <div className="md:col-span-full text-right">
                                         <div className="inline-flex items-end">
-                                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                                            <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                                         </div>
                                     </div>
 
