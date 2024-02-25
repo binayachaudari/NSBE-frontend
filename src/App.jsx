@@ -1,10 +1,13 @@
 import './App.css'
+import LandingPage from './components/LandingPage'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <p className='text-red-400 text-8xl'>
-      Hello world
-    </p>
+    <>
+      <Navbar />
+      <LandingPage />
+    </>
   )
 }
 
