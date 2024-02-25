@@ -19,6 +19,7 @@ const Tennant = () => {
   const { mutate, isLoading } = useMutation('chat', fetchResponse, {
     enabled: false,
     onSuccess: (data) => {
+      chatHistory.pop(); // remove the Bot is typing message
       chatHistory.push({ type: 'bot', text: data.text });
       setChatHistory([...chatHistory]);
     },
@@ -28,10 +29,18 @@ const Tennant = () => {
     if (userText === '') {
       return;
     }
+
+    // scroll to the bottom of the chat box
+    chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+
+    // temporarily set Bot is typing message on the chat box
     mutate(userText);
     chatHistory.push({ type: 'user', text: userText });
+    chatHistory.push({ type: 'bot', text: 'Bot is out there in the City...' });
     setChatHistory([...chatHistory]);
     setUserText('');
+
+    // scroll to the bottom of the chat box
   };
 
   return (
@@ -40,18 +49,12 @@ const Tennant = () => {
       {/* tailwind 2 column grid */}
 
       <div className="grid grid-cols-2 gap-4 p-10">
-        <div ref={chatBoxRef} id="chat-container" className="w-full">
+        <div id="chat-container" className="w-full">
           <div className="bg-white shadow-md rounded-lg max-w-lg w-full">
             <div className="p-4 border-b bg-yellow-600 text-white rounded-t-lg flex justify-around">
               <p className="text-lg font-semibold">EasyLease</p>
             </div>
-            <div id="chatbox" className="p-4 h-96 overflow-y-auto">
-              {/* <div className="mb-2 text-right">
-                        <p className="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">hello</p>
-                    </div> */}
-              {/* chat history first index baground is white second is blue */}
-
-              {console.log(chatHistory)}
+            <div id="chatbox" className="p-4 h-96 overflow-y-auto" ref={chatBoxRef}>
               {chatHistory.map((chat, index) => {
                 // bg-yellow-600 for sent message and on the right side, bg-white for received message and on the left side
                 if (chat?.type === 'user') {
@@ -100,8 +103,14 @@ const Tennant = () => {
           </div>
         </div>
         {/* <!-- Container for demo purpose --> */}
-
+        
         <div id="accordion-collapse" data-accordion="collapse">
+          {/* FAQ Title */}
+
+          <h1 className="text-2xl mb-5 font-semibold text-yellow-600 underline-offset-1 underline dark:text-gray-200">
+            Frequently Asked Questions
+          </h1>
+
           <h2 id="accordion-collapse-heading-1">
             <button
               onClick={() => {
