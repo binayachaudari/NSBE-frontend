@@ -19,7 +19,8 @@ const Tennant = () => {
   const { mutate, isLoading } = useMutation('chat', fetchResponse, {
     enabled: false,
     onSuccess: (data) => {
-      setChatHistory([...chatHistory, { type: 'bot', text: data.text }]);
+      chatHistory.push({ type: 'bot', text: data.text });
+      setChatHistory([...chatHistory]);
     },
   });
 
@@ -28,7 +29,8 @@ const Tennant = () => {
       return;
     }
     mutate(userText);
-    setChatHistory([...chatHistory, { type: 'user', text: userText }]);
+    chatHistory.push({ type: 'user', text: userText });
+    setChatHistory([...chatHistory]);
     setUserText('');
   };
 
@@ -49,6 +51,7 @@ const Tennant = () => {
                     </div> */}
               {/* chat history first index baground is white second is blue */}
 
+              {console.log(chatHistory)}
               {chatHistory.map((chat, index) => {
                 // bg-yellow-600 for sent message and on the right side, bg-white for received message and on the left side
                 if (chat?.type === 'user') {
